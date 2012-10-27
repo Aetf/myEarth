@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-    
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ProgressRing Grid.Row="1" IsActive="True"
+                      Height="100" Width="100"></ProgressRing>
     </Grid>
 </Page>
