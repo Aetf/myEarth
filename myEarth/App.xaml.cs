@@ -41,34 +41,42 @@ namespace myEarth
         /// <param name="args">有关启动请求和过程的详细信息。</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
+            //Frame rootFrame = Window.Current.Content as Frame;
 
-            // 不要在窗口已包含内容时重复应用程序初始化，
-            // 只需确保窗口处于活动状态
-            if (rootFrame == null)
+            //// 不要在窗口已包含内容时重复应用程序初始化，
+            //// 只需确保窗口处于活动状态
+            //if (rootFrame == null)
+            //{
+            //    // 创建要充当导航上下文的框架，并导航到第一页
+            //    rootFrame = new Frame();
+
+            //    if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
+            //    {
+            //        //TODO: 从之前挂起的应用程序加载状态
+            //    }
+
+            //    // 将框架放在当前窗口中
+            //    Window.Current.Content = rootFrame;
+            //}
+
+            //if (rootFrame.Content == null)
+            //{
+            //    // 当未还原导航堆栈时，导航到第一页，
+            //    // 并通过将所需信息作为导航参数传入来配置
+            //    // 参数
+            //    if (!rootFrame.Navigate(typeof(SelectBatteryType), args.Arguments))
+            //    {
+            //        throw new Exception("Failed to create initial page");
+            //    }
+            //}
+
+            if (args.PreviousExecutionState != ApplicationExecutionState.Running)
             {
-                // 创建要充当导航上下文的框架，并导航到第一页
-                rootFrame = new Frame();
-
-                if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: 从之前挂起的应用程序加载状态
-                }
-
-                // 将框架放在当前窗口中
-                Window.Current.Content = rootFrame;
+                bool loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
+                ExtendedSplash extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
+                Window.Current.Content = extendedSplash;
             }
 
-            if (rootFrame.Content == null)
-            {
-                // 当未还原导航堆栈时，导航到第一页，
-                // 并通过将所需信息作为导航参数传入来配置
-                // 参数
-                if (!rootFrame.Navigate(typeof(StartPage), args.Arguments))
-                {
-                    throw new Exception("Failed to create initial page");
-                }
-            }
             // 确保当前窗口处于活动状态
             Window.Current.Activate();
         }
