@@ -72,9 +72,13 @@ namespace myEarth
 
             if (args.PreviousExecutionState != ApplicationExecutionState.Running)
             {
+                
+
                 bool loadState = (args.PreviousExecutionState == ApplicationExecutionState.Terminated);
                 ExtendedSplash extendedSplash = new ExtendedSplash(args.SplashScreen, loadState);
                 Window.Current.Content = extendedSplash;
+
+                PerformSetupTask();
             }
 
             // 确保当前窗口处于活动状态
@@ -93,6 +97,16 @@ namespace myEarth
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
+        }
+
+        internal void PerformSetupTask()
+        {
+            int a = 2;
+            for(int i = 0; i!= 10000000; i++)
+            {
+                a = i * i;
+            }
+            Window.Current.Content = new SelectBatteryPage();
         }
     }
 }
