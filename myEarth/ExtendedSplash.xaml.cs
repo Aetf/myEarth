@@ -79,8 +79,15 @@ namespace myEarth
         {
             dismissed = true;
 
+
+        }
+
+        private void learnMoreBtn_Click(object sender, RoutedEventArgs e)
+        {
             // Navigate away from the app's extended splash screen after completing setup operations here...
-            this.rootFrame.Navigate(typeof(SelectBatteryType));
+            this.rootFrame.Navigate(typeof(SelectBatteryPage));
+            // Place the frame in the current Window
+            Window.Current.Content = rootFrame;
         }
     }
 }

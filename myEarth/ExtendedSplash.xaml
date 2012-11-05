@@ -15,8 +15,13 @@
     <Canvas Grid.Row="0">
         <Image x:Name="extendedSplashImage" Source="Assets/SplashScreen.png"></Image>
     </Canvas>
-    <StackPanel Grid.Row="1">
-        <ProgressRing Foreground="White" MinWidth="80" MinHeight="80" IsActive="True" HorizontalAlignment="Center"></ProgressRing>
+    <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+        <ProgressRing Foreground="White" HorizontalAlignment="Center"
+                      MinWidth="30" MinHeight="30" MaxHeight="30" MaxWidth="30"
+                      IsActive="True"></ProgressRing>
+        <Button x:Name="learnMoreBtn"
+                HorizontalAlignment="Center" Margin="10"
+                Click="learnMoreBtn_Click">Learn More</Button>
     </StackPanel>
 
 </Grid>
