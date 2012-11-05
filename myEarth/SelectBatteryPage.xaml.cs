@@ -10,20 +10,23 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-// “基本页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234237 上有介绍
+// “项目页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234233 上提供
 
 namespace myEarth
 {
     /// <summary>
-    /// 基本页，提供大多数应用程序通用的特性。
+    /// 显示项预览集合的页。在“拆分布局应用程序”中，此页
+    /// 用于显示及选择可用组之一。
     /// </summary>
-    public sealed partial class SelectBatteryType : myEarth.Common.LayoutAwarePage
+    public sealed partial class SelectBatteryPage : myEarth.Common.LayoutAwarePage
     {
-        public SelectBatteryType()
+        public SelectBatteryPage()
         {
             this.InitializeComponent();
+
         }
 
         /// <summary>
@@ -37,16 +40,7 @@ namespace myEarth
         /// 字典。首次访问页面时为 null。</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-        }
-
-        /// <summary>
-        /// 保留与此页关联的状态，以防挂起应用程序或
-        /// 从导航缓存中放弃此页。值必须符合
-        /// <see cref="SuspensionManager.SessionState"/> 的序列化要求。
-        /// </summary>
-        /// <param name="pageState">要使用可序列化状态填充的空字典。</param>
-        protected override void SaveState(Dictionary<String, Object> pageState)
-        {
+            // TODO: 将可绑定项集合分配到 this.DefaultViewModel["Items"]
         }
     }
 }
